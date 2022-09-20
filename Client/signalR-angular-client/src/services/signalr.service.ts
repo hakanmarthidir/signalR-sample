@@ -26,6 +26,7 @@ export class SignalrService {
       .then(() => console.log('Connection started'))
       .then(() => this.getConnectionId())
       .then(() => this.addWelcomeListener())
+      .then(() => this.addUpdateListener())
       .catch(err => console.log('Error while starting connection: ' + err));
   }
 
@@ -47,6 +48,12 @@ export class SignalrService {
   public addWelcomeListener = () => {
     this.hubConnection.on('welcome', (data) => {
       console.log("Welcome Listener " + data);
+    })
+  }
+
+  public addUpdateListener = () => {
+    this.hubConnection.on('updateStatistic', (data) => {
+      console.log("Update Listener " + data);
     })
   }
 }

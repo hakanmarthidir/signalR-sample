@@ -23,5 +23,11 @@ export class AppComponent {
   }
 
   public update()
-  {}
+  {
+    console.log("called with " + this.connectionId);
+    this.httpService.get('http://localhost:5193/api/projectdrawing?connectionId='+this.connectionId)
+      .subscribe(res => {
+        console.log(res);
+      });
+  }
 }

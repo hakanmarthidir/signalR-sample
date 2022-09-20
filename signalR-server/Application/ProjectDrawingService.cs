@@ -20,10 +20,12 @@ namespace signalR_server.Application
 
         public async Task UpdateOperation(string connectionId)
         {
+            await this._hubContext.Clients.Client(connectionId).SendAsync("updateStatistic", "Update Operation Started");
             for (int i = 0; i < 100; i++)
             {
                 await this._hubContext.Clients.Client(connectionId).SendAsync("updateStatistic", i);
             }
+            await this._hubContext.Clients.Client(connectionId).SendAsync("updateStatistic", "100 Items Updated");
         }
     }
 }
