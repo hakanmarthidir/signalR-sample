@@ -1,6 +1,13 @@
 
 <button (click)="showConnectionId()">Show Connection Id</button>
 <strong>Connection ID:  {{this.connectionId}} </strong>
-
-<br>
+<br><br>
 <button (click)="update()">Update Geometries</button>
+<br><br>
+<div>
+    {{projectDrawingUpdateLogs}}
+</div>
+<br><br>
+<button (click)="stream1()">Start Stream1</button>
+<br><br>
+<button (click)="stream2()">Start Stream2</button>

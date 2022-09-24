@@ -23,6 +23,7 @@ namespace signalR_server.Application
             await this._hubContext.Clients.Client(connectionId).SendAsync("updateStatistic", "Update Operation Started");
             for (int i = 0; i < 100; i++)
             {
+                await Task.Delay(1000);
                 await this._hubContext.Clients.Client(connectionId).SendAsync("updateStatistic", i);
             }
             await this._hubContext.Clients.Client(connectionId).SendAsync("updateStatistic", "100 Items Updated");
